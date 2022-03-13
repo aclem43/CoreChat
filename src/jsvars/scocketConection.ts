@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { setLoginBool } from "./connection";
 import { setconnectionstate } from "./connectionstate";
 import {addmessages} from "./messages"
+import { setusername } from "./username";
 
 const socket:WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.location.host}/ws/`);
 
@@ -61,6 +62,7 @@ export const sendMessage = (message,groupid):void => {
 }
 export const login = (usrname:string,password:string) => {
     username = usrname;
+    setusername(username)
     console.log(id)
     socket.send(objStr({type:"login",id:id,username:usrname,password:password}))
 }
