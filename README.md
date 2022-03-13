@@ -1,12 +1,12 @@
-## CoreChat
+# CoreChat
 
 Vue + Electron
 
 Developed with Vite
 
-# Features
+## Features
 - Instant Messaging 
 
-# Work In Progress
+## Work In Progress
 - Group Chats
 - Login
