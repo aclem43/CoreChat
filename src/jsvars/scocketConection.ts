@@ -2,7 +2,8 @@
 import { ref } from "vue";
 import { setLoginBool } from "./connection";
 import { setconnectionstate } from "./connectionstate";
-import {addmessages} from "./messages"
+import { getGroupId, setGroupId } from "./groupid";
+import {addmessages, clearmessages} from "./messages"
 import { setusername } from "./username";
 
 const socket:WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.location.host}/ws/`);
@@ -44,11 +45,17 @@ socket.addEventListener('message', (event) => {
         case "login":
             if (data.return){
                 setLoginBool(true)
+                setusername(username)
             }
             break
         case "message":
-            addmessages({msgid:data.msgid,message:data.message,sendername:data.senderusername,senttime:data.senttime})
+            addmessages({msgid:data.msgid,message:data.message,sendername:data.senderusername,senttime:data.senttime,groupid:data.groupid})
             break
+        case "changegroup":
+            if (data.return) {
+                clearmessages()
+                setGroupId(data.groupid)
+            }
     }
    
 
@@ -57,12 +64,15 @@ export const getSocket = ():WebSocket => {
     return socket;
 }
 export const sendMessage = (message,groupid):void => {
-    socket.send(objStr({id:id,type:"message",message:message,username:username,senttime:Date.now(),groupid:"int"}))
+    socket.send(objStr({id:id,type:"message",message:message,username:username,senttime:Date.now(),groupid:groupid}))
     
 }
+export const changeGroup = (groupid) => {
+    socket.send(objStr({id:id,type:"changegroup",groupid:groupid,username:username}))
+}
 export const login = (usrname:string,password:string) => {
-    username = usrname;
-    setusername(username)
-    console.log(id)
     socket.send(objStr({type:"login",id:id,username:usrname,password:password}))
+    username = usrname;
+    console.log(id)
+    
 }

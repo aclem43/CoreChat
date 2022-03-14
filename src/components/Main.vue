@@ -40,7 +40,7 @@ let connectionStatus = computed(()=> {
                 <Sideboard />
             </div>
             <div id="messagecontainer" class="w-10/12 p-5 bg-secondary rounded-md overflow-y-scroll  flex-col-reverse">
-                
+                <div>Group</div>
                 <div v-if="message" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
                     <Message :messagecontent="messsage" /> 
                 </div>

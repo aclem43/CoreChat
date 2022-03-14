@@ -4,7 +4,6 @@ const username:Ref = ref('LogIn')
 
 
 export const getusername = ():Ref => {
-
     return username
 }
 

@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { getLoginBool } from '../jsvars/connection';
+import { getGroupId } from '../jsvars/groupid';
 import { sendMessage } from '../jsvars/scocketConection';
 import { getusername } from '../jsvars/username';
 const messageInput = ref("")
@@ -13,7 +14,7 @@ const keyPress = () => {
     if (isBlank(messageInput.value)){
         return
     }
-    sendMessage(messageInput.value,"0000")
+    sendMessage(messageInput.value,getGroupId().value)
     messageInput.value = "";
 
   
@@ -27,7 +28,7 @@ const disabled =  computed(()=> !getLoginBool().value);
 <div class="rounded-md bg-secondary w-2/12"> 
 
     <div class="text-sm flex">
-        <img src="src/assets/avatar.png" class="w-6 h-6 rounded-full p-1">
+        <img src="src/assets/avatar.png" class="w-6 h-6 rounded-full p-1 mx-1">
         <h2 class="pt-0.5 text-base">{{getusername().value}}</h2>
     </div>
     <div class="text-xs text-center">
