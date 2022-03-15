@@ -4,22 +4,31 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
    theme: {
-    extend: {
-      colors: { 
-        transparent: 'transparent',
-        current: 'currentColor',
-        'primary': '#172121',
-        'secondary': '#444554',
-        'tetiary':'#E5D0CC',
-        'quaternary':'#7F7B82',
-        'warn':'#995c1f',
-        'critical':'#751f1b',
-        'sucsess':'#2d751e',
+     fontFamily:{
+      'font1': ['Didot'],
+     },
+      extend: {
+        colors: { 
+          transparent: 'transparent',
+          current: 'currentColor',
+          'primary': '#172121',
+          'secondary': '#444554',
+          'tetiary':'#E5D0CC',
+          'quaternary':'#7F7B82',
+          'warn':'#995c1f',
+          'critical':'#751f1b',
+          'sucsess':'#2d751e',
 
-        'button':'#444554',
-        'button-hover':'#565769',
-        
-      },
+          'messsageBG':'#7F7B82',
+          'messageAlt':'#7F7B82',
+
+          'grouptbg':  '#535466',
+          'grouptbord':'#383942',
+
+          'button':'#444554',
+          'button-hover':'#565769',
+          
+        },
     },
     animation: {
         fade: 'fadeIn 0.2s ease-in',

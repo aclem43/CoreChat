@@ -20,7 +20,7 @@ const formatDate = (s) => {
 </script>
 
 <template>
-    <div ref="msgdiv" class="bg-quaternary rounded-md w-auto p-2 m-2 animate-fade" >
+    <div ref="msgdiv" class="bg-messsageBG rounded-md w-auto p-2 m-2 animate-fade" >
         
             <div class="grid grid-rows-2 grid-cols-2">
             <div>{{messagecontent.sendername}}</div>
@@ -29,4 +29,4 @@ const formatDate = (s) => {
         </div>
     </div>
 
-</template>
+</template> 

@@ -39,13 +39,14 @@ let connectionStatus = computed(()=> {
             <div class="w-2/12">
                 <Sideboard />
             </div>
-            <div id="messagecontainer" class="w-10/12 p-5 bg-secondary rounded-md overflow-y-scroll  flex-col-reverse">
-                <div>Group</div>
-                <div v-if="message" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
-                    <Message :messagecontent="messsage" /> 
-                </div>
-                <div v-if="message == false" class="grid grid-cols-3 gap-4">
-                    2nd Menu
+            <div id="messagecontainer" class="w-10/12 bg-secondary rounded-md overflow-y-scroll">
+                <div class="pb-5">
+                    <div v-if="message" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
+                        <Message :messagecontent="messsage" /> 
+                    </div>
+                    <div v-if="message == false" class="grid grid-cols-3 gap-4">
+                        2nd Menu
+                    </div>
                 </div>
             
             </div>

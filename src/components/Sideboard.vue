@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { getLoginBool } from '../jsvars/connection';
-import { changeGroup, login } from '../jsvars/scocketConection';
+import { changeGroup, login } from '../js/scocketConection';
 import User from './User.vue';
 
 const username = ref(null);
@@ -39,9 +39,9 @@ const connectBtn = () => {
             </h3>
             <div class="p-2">
                 <label for="usernamin" class="pr-2 text-xs">Username:</label>
-                <input id="usernamin" type="text" class="rounded-md text-xs p-1" size="8"  v-model="username" placeholder="Username..." /> 
+                <input id="usernamin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="8" v-model="username" placeholder="Username..." /> 
                 <label for="passwordin" class="pr-2 text-xs">Password: </label>
-                <input id="passwordin" type="password" class="rounded-md text-xs p-1" size="8"  v-model="password"  placeholder="Password..." /> 
+                <input id="passwordin" type="password" class="rounded-md text-xs p-1 focus:outline-none" size="8"  v-model="password"  placeholder="Password..." /> 
             </div>
             <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover" v-on:click="connectBtn">Connect</button>
             
@@ -53,9 +53,9 @@ const connectBtn = () => {
             </h3>
             <div class="p-2">
                 <label for="usernamregin" class="pr-2 text-xs">Username:</label>
-                <input id="usernamregin" type="text" class="rounded-md text-xs p-1" size="8"  v-model="regusername" placeholder="Username..." /> 
+                <input id="usernamregin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="8"  v-model="regusername" placeholder="Username..." /> 
                 <label for="passwordregin" class="pr-2 text-xs">Password: </label>
-                <input id="passwordregin" type="password" class="rounded-md text-xs p-1" size="8"  v-model="regpassword"  placeholder="Password..." /> 
+                <input id="passwordregin" type="password" class="rounded-md text-xs p-1 focus:outline-none" size="8"  v-model="regpassword"  placeholder="Password..." /> 
             </div>
             <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover" v-on:click="connectBtn">Connect</button>
             
@@ -67,7 +67,7 @@ const connectBtn = () => {
             </h3>
             <div class="p-2">
                 <label for="groupidin" class="pr-2 text-xs">Group Code:</label>
-                <input id="groupidin" type="text" class="rounded-md text-xs p-1" size="5"  v-model="groupID" placeholder="e.g. 0000" /> 
+                <input id="groupidin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="5"  v-model="groupID" placeholder="e.g. 0000" /> 
             </div>
             <div class="pb-2">
                 <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover" v-on:click="changegroubtn">Join</button>

@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import { getLoginBool } from '../jsvars/connection';
 import { getGroupId } from '../jsvars/groupid';
-import { sendMessage } from '../jsvars/scocketConection';
+import { sendMessage } from '../js/scocketConection';
 import { getusername } from '../jsvars/username';
 const messageInput = ref("")
 
@@ -37,8 +37,8 @@ const disabled =  computed(()=> !getLoginBool().value);
 
 </div>
 
-<input v-model="messageInput" class="border-solid border-2 border-secondary rounded-md text-lg p-1 w-10/12 ml-1 " :disabled="disabled" 
-    placeholder="Message..." v-on:keypress.enter="keyPress()"/>
+<input v-model="messageInput" class="border-solid border-2 border-secondary rounded-md text-lg p-1 w-10/12 ml-1 focus:outline-none" :disabled="disabled" 
+    :placeholder="'Message @' +getGroupId().value" v-on:keypress.enter="keyPress()"/>
 
 
 
