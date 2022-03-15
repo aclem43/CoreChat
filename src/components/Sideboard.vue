@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { getLoginBool } from '../jsvars/connection';
-import { changeGroup, login } from '../js/scocketConection';
+import { changeGroup, login } from '../jsvars/scocketConection';
 import User from './User.vue';
 
 const username = ref(null);

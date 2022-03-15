@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import { getLoginBool } from '../jsvars/connection';
 import { getGroupId } from '../jsvars/groupid';
-import { sendMessage } from '../js/scocketConection';
+import { sendMessage } from '../jsvars/scocketConection';
 import { getusername } from '../jsvars/username';
 const messageInput = ref("")
 
