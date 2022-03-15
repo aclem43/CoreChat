@@ -5,11 +5,11 @@ import { setconnectionstate } from "./connectionstate";
 import { getGroupId, setGroupId } from "./groupid";
 import {addmessages, clearmessages} from "./messages"
 import { setusername } from "./username";
+import {getUserid,setUserid} from './userid'
 
 const socket:WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.location.host}/ws/`);
 
 
-let id:string;
 let username:string = "NULL"
 
 const objStr = (object:object)=>{
@@ -40,7 +40,7 @@ socket.addEventListener('message', (event) => {
     const data = strObj(event.data)
     switch (data.type){
         case "connection":
-            id = data.id;
+            setUserid(data.id);
             break
         case "login":
             if (data.return){
@@ -64,15 +64,15 @@ export const getSocket = ():WebSocket => {
     return socket;
 }
 export const sendMessage = (message,groupid):void => {
-    socket.send(objStr({id:id,type:"message",message:message,username:username,senttime:Date.now(),groupid:groupid}))
+    socket.send(objStr({id:getUserid().value,type:"message",message:message,username:username,senttime:Date.now(),groupid:groupid}))
     
 }
 export const changeGroup = (groupid) => {
-    socket.send(objStr({id:id,type:"changegroup",groupid:groupid,username:username}))
+    socket.send(objStr({id:getUserid().value,type:"changegroup",groupid:groupid,username:username}))
 }
 export const login = (usrname:string,password:string) => {
-    socket.send(objStr({type:"login",id:id,username:usrname,password:password}))
+    socket.send(objStr({type:"login",id:getUserid().value,username:usrname,password:password}))
     username = usrname;
-    console.log(id)
+    console.log(getUserid().value)
     
 }

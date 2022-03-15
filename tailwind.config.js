@@ -20,7 +20,7 @@ module.exports = {
           'sucsess':'#2d751e',
 
           'messsageBG':'#7F7B82',
-          'messageAlt':'#7F7B82',
+          'messageAlt':'#000000',
 
           'grouptbg':  '#535466',
           'grouptbord':'#383942',

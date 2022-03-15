@@ -4,6 +4,7 @@ import { getLoginBool } from '../jsvars/connection';
 import { getGroupId } from '../jsvars/groupid';
 import { sendMessage } from '../jsvars/scocketConection';
 import { getusername } from '../jsvars/username';
+import {getUserid} from '../jsvars/userid'
 const messageInput = ref("")
 
 function isBlank(str) {
@@ -21,7 +22,13 @@ const keyPress = () => {
 }
 
 
+
 const disabled =  computed(()=> !getLoginBool().value);
+const userid =  computed(()=>{
+    if(getUserid().value) {
+        return getUserid().value
+    } else return ""
+    })
 </script>
 
 <template>
@@ -32,7 +39,7 @@ const disabled =  computed(()=> !getLoginBool().value);
         <h2 class="pt-0.5 text-base">{{getusername().value}}</h2>
     </div>
     <div class="text-xs text-center">
-        Monkey
+        {{userid}}
     </div>
 
 </div>
