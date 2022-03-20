@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-
 const msgdiv = ref()
 defineProps({
     messagecontent:Object,
@@ -22,13 +21,12 @@ const formatDate = (s) => {
 <template>
     <div ref="msgdiv" class="bg-messsageBG rounded-md w-auto p-2 m-2 animate-fade" >
         
-        <div class="grid grid-cols-2">
+        <div class="grid grid-cols-2 relative">
             <div class="">{{messagecontent.sendername}}</div>
-            <div class="text-xs text-right " > Sent at {{formatDate(messagecontent.senttime)}}</div>
-            <div class="text-sm col-span-2 break-normal"  >{{messagecontent.message}} </div>           
-            <div class="col-span-2 p-0 float">
-                <div class="text-right">Xicon</div>
-            </div> 
+            <div class="text-xs" > 
+                <div class="text-right">Sent at {{formatDate(messagecontent.senttime)}}</div>
+            </div>
+            <div class="text-sm col-span-2 break-normal "  >{{messagecontent.message}} </div>  
         </div>
     </div>
 

@@ -32,7 +32,7 @@ const userid =  computed(()=>{
 </script>
 
 <template>
-<div class="rounded-md bg-secondary w-2/12"> 
+<div class="rounded-md bg-secondary w-2/12 mobile:hidden"> 
 
     <div class="text-sm flex">
         <img src="src/assets/avatar.png" class="w-6 h-6 rounded-full p-1 mx-1">
@@ -44,7 +44,7 @@ const userid =  computed(()=>{
 
 </div>
 
-<input v-model="messageInput" class="border-solid border-2 border-secondary rounded-md text-lg p-1 w-10/12 ml-1 focus:outline-none" :disabled="disabled" 
+<input v-model="messageInput" class="border-solid border-2 border-secondary rounded-md text-lg p-1 md:w-10/12 mobile:w-full ml-1 focus:outline-none" :disabled="disabled" 
     :placeholder="'Message @' +getGroupId().value" v-on:keypress.enter="keyPress()"/>
 
 

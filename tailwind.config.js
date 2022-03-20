@@ -8,6 +8,12 @@ module.exports = {
       'font1': ['Didot'],
      },
       extend: {
+        
+        screens: {
+          'mobile': { 'raw': '(max-width: 800px)' },
+          'md': '800px',
+        },
+        
         colors: { 
           transparent: 'transparent',
           current: 'currentColor',

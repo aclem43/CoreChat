@@ -1,8 +1,8 @@
-<script setup>
-import { ref } from 'vue'
+
+<script setup>import { ref } from 'vue';
 import { getLoginBool } from '../jsvars/connection';
-import { changeGroup, login } from '../jsvars/scocketConection';
-import User from './User.vue';
+import { login } from '../jsvars/scocketConection';
+
 
 const username = ref(null);
 const password = ref(null);
@@ -26,12 +26,11 @@ const connectBtn = () => {
     login(username.value,password.value)
 
 }
+
 </script>
 
-
 <template>
-    <div class="bg-secondary rounded-md h-full p-3 mobile:hidden">
-        <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
+    <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
             <h3>
                 Login
             </h3>
@@ -59,31 +58,4 @@ const connectBtn = () => {
             
 
         </div>
-        <div class="text-center bg-quaternary rounded-md p-5 mb-2 animate-fade" v-if="getLoginBool().value">
-            <h3>
-                Group
-            </h3>
-            <div class="p-2">
-                <label for="groupidin" class="pr-2 text-xs">Group Code:</label>
-                <input id="groupidin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="5"  v-model="groupID" placeholder="e.g. 0000" /> 
-            </div>
-            <div class="pb-2">
-                <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover" v-on:click="changegroubtn">Join</button>
-            </div>
-            <div>
-                <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover">Current Groups</button>
-            </div>
-            
-
-        </div>
-        <div class="text-center bg-quaternary rounded-md p-5 animate-fade" v-if="getLoginBool().value">
-        
-            <h3>
-                Connected Users
-            </h3>
-            <div class="border-2 border-secondary rounded-md px-1">
-                <User username="TestUser" />
-            </div>
-        </div>
-    </div>
 </template>

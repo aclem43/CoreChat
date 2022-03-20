@@ -6,14 +6,20 @@ import { computed, onMounted, ref } from 'vue';
 import { getmessages } from '../jsvars/messages';
 import {getVersion} from '../jsvars/version'
 import { getconnectionstate } from '../jsvars/connectionstate';
+import MobileLogin from './MobileLogin.vue';
+import { getLoginBool } from '../jsvars/connection';
 
 
 
 const messageDiv = ref();
-const message = ref(true)
+const mobilelogin = ref(false)
 
 
-
+if (window.innerWidth <= 800) {
+    mobilelogin.value = true;
+}else {
+    mobilelogin.value = false;
+}
 
 let connectionStatus = computed(()=> {
     let x = getconnectionstate()
@@ -26,6 +32,17 @@ let connectionStatus = computed(()=> {
     }
 })
 
+window.addEventListener(
+    'resize',
+    () => {
+        if (window.innerWidth <= 800) {
+            mobilelogin.value = true;
+        }else {
+            mobilelogin.value = false;
+        }
+    }
+
+)
 
 
 </script>
@@ -35,17 +52,17 @@ let connectionStatus = computed(()=> {
 
 
 <div class=" grow  pt-2 pr-4" style="height: 110vh;">
-        <div class="flex grow gap-2  grid-cols-2 pl-3 pb-3 h-5/6" >
-            <div class="w-2/12">
+        <div class="flex grow gap-2  grid-cols-2 pl-3 pb-3 md:h-5/6 mobile:h-4/5" >
+            <div class="md:w-2/12 ">
                 <Sideboard />
             </div>
-            <div id="messagecontainer" class="w-10/12 bg-secondary rounded-md overflow-y-scroll">
+            <div id="messagecontainer" class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll">
                 <div class="pb-5">
-                    <div v-if="message" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
+                    <div v-if="mobilelogin == false || getLoginBool()" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
                         <Message :messagecontent="messsage" /> 
                     </div>
-                    <div v-if="message == false" class="grid grid-cols-3 gap-4">
-                        2nd Menu
+                    <div v-if="mobilelogin" class="grid grid-cols-3 gap-4">
+                        <MobileLogin />
                     </div>
                 </div>
             
