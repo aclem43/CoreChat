@@ -73,6 +73,5 @@ export const changeGroup = (groupid) => {
 export const login = (usrname:string,password:string) => {
     socket.send(objStr({type:"login",id:getUserid().value,username:usrname,password:password}))
     username = usrname;
-    console.log(getUserid().value)
     
 }
