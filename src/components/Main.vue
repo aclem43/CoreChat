@@ -2,10 +2,10 @@
 import Message from './Message.vue'
 import Sideboard from './Sideboard.vue';
 import BottomBoard from './BottomBoard.vue'
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { getmessages } from '../jsvars/messages';
 import {getVersion} from '../jsvars/version'
-import { getconnectionstate } from '../jsvars/connectionstate';
+import { getconnectionStatus } from '../jsvars/connectionstate';
 import MobileLogin from './MobileLogin.vue';
 import { getLoginBool } from '../jsvars/connection';
 
@@ -13,7 +13,18 @@ import { getLoginBool } from '../jsvars/connection';
 
 const messageDiv = ref();
 const mobilelogin = ref(false)
+const messagepage = computed(()=>getLoginBool().value)
 
+
+
+const changelogs = computed(()=>{
+    if (messagepage.value==false && mobilelogin.value ==false) {
+        return true
+    }   
+    else {
+        return false
+    }
+});  
 
 if (window.innerWidth <= 800) {
     mobilelogin.value = true;
@@ -21,16 +32,6 @@ if (window.innerWidth <= 800) {
     mobilelogin.value = false;
 }
 
-let connectionStatus = computed(()=> {
-    let x = getconnectionstate()
-    if (x.value == 0){  
-        return "Connecting"
-    }else if (x.value == 1){
-        return "Connected"
-    }else if (x.value == 2){
-        return "Disconected"
-    }
-})
 
 window.addEventListener(
     'resize',
@@ -58,11 +59,14 @@ window.addEventListener(
             </div>
             <div id="messagecontainer" class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll">
                 <div class="pb-5">
-                    <div v-if="mobilelogin == false || getLoginBool()" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
+                    <div v-if="messagepage" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
                         <Message :messagecontent="messsage" /> 
                     </div>
-                    <div v-if="mobilelogin" class="grid grid-cols-3 gap-4">
+                    <div v-if="mobilelogin">
                         <MobileLogin />
+                    </div>
+                    <div v-if="changelogs">
+                        <h1>changelogs</h1>
                     </div>
                 </div>
             
@@ -72,7 +76,7 @@ window.addEventListener(
             <BottomBoard/>
         </div>
         <div class="grid grid-cols-2 pl-3">
-                <div class="text-tetiary text-xs ">{{connectionStatus}} </div>
+                <div class="text-tetiary text-xs ">{{getconnectionStatus}} </div>
             <div class="text-tetiary text-xs text-right">Version - {{getVersion()}}</div>
        </div>
     </div>

@@ -1,6 +1,6 @@
 import { Ref, ref } from "vue";
 
-const username:Ref = ref('LogIn')
+const username:Ref = ref('Log In')
 
 
 export const getusername = ():Ref => {

@@ -30,7 +30,13 @@ const connectBtn = () => {
 
 
 <template>
+    
     <div class="bg-secondary rounded-md h-full p-3 mobile:hidden">
+        <div class="text-center bg-quaternary rounded-md p-2 mb-2 animate-fade ">
+            <h1>Corechat</h1>
+            <div class="text-xs">Description</div>
+            <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover text-xs" v-on:click="">Changelogs</button>
+        </div>
         <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
             <h3>
                 Login
@@ -70,9 +76,7 @@ const connectBtn = () => {
             <div class="pb-2">
                 <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover" v-on:click="changegroubtn">Join</button>
             </div>
-            <div>
-                <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover">Current Groups</button>
-            </div>
+
             
 
         </div>
