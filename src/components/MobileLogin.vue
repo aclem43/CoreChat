@@ -20,7 +20,7 @@ const connectBtn = () => {
 </script>
 
 <template>
-    <div class="grid grid-cols-2 gap-4 p-4 ">
+    <div class="grid sm:grid-cols-2 gap-4 p-4 ">
         <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
             <h3>
                 Login
