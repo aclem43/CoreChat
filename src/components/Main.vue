@@ -8,6 +8,7 @@ import {getVersion} from '../jsvars/version'
 import { getconnectionStatus } from '../jsvars/connectionstate';
 import MobileLogin from './MobileLogin.vue';
 import { getLoginBool } from '../jsvars/connection';
+import Changelog from './Changelog.vue';
 
 
 
@@ -66,7 +67,7 @@ window.addEventListener(
                         <MobileLogin />
                     </div>
                     <div v-if="changelogs">
-                        <h1>changelogs</h1>
+                        <Changelog />
                     </div>
                 </div>
             

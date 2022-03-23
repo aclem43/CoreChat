@@ -1,0 +1,18 @@
+{
+    "VERSION":"0.2",
+    "CHANGELOGS": [
+        {
+            "version":"0.2",
+            "changelog":"Implemented Basic Backend Protocols And Functionality "
+        },
+        {
+            "version": "0.1",
+            "changelog":"Basic Client Ui"
+        }
+    ],
+    "FUTURE":[
+        {
+            "plan":"Add Login and Register functianalty"
+        }
+    ]
+}
