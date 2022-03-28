@@ -4,11 +4,11 @@ import Sideboard from './Sideboard.vue';
 import BottomBoard from './BottomBoard.vue'
 import { computed, ref } from 'vue';
 import { getmessages } from '../jsvars/messages';
-import {getVersion} from '../jsvars/version'
 import { getconnectionStatus } from '../jsvars/connectionstate';
 import MobileLogin from './MobileLogin.vue';
 import { getLoginBool } from '../jsvars/connection';
 import Changelog from './Changelog.vue';
+import { getchangelogs } from '../jsvars/changelog';
 
 
 
@@ -16,7 +16,7 @@ const messageDiv = ref();
 const mobilelogin = ref(false)
 const messagepage = computed(()=>getLoginBool().value)
 
-
+const version = getchangelogs().VERSION
 
 const changelogs = computed(()=>{
     if (messagepage.value==false && mobilelogin.value ==false) {
@@ -78,7 +78,7 @@ window.addEventListener(
         </div>
         <div class="grid grid-cols-2 pl-3">
                 <div class="text-tetiary text-xs ">{{getconnectionStatus}} </div>
-            <div class="text-tetiary text-xs text-right">Version - {{getVersion()}}</div>
+            <div class="text-tetiary text-xs text-right">Version - {{version}}</div>
        </div>
     </div>
 

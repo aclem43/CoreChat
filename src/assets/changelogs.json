@@ -1,6 +1,10 @@
 {
-    "VERSION":"0.2",
+    "VERSION":"0.2.1",
     "CHANGELOGS": [
+        {
+            "version":"0.2.1",
+            "changelog":"Added Changelog page"
+        },
         {
             "version":"0.2",
             "changelog":"Implemented Basic Backend Protocols And Functionality "
