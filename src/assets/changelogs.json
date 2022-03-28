@@ -1,22 +1,22 @@
 {
-    "VERSION":"0.2.1",
+    "VERSION": "0.2.1",
     "CHANGELOGS": [
         {
-            "version":"0.2.1",
-            "changelog":"Added Changelog page"
+            "version": "0.2.1",
+            "changelog": "Added Changelog page"
         },
         {
-            "version":"0.2",
-            "changelog":"Implemented Basic Backend Protocols And Functionality "
+            "version": "0.2",
+            "changelog": "Implemented Basic Backend Protocols And Functionality "
         },
         {
             "version": "0.1",
-            "changelog":"Basic Client Ui"
+            "changelog": "Basic Client Ui"
         }
     ],
-    "FUTURE":[
+    "FUTURE": [
         {
-            "plan":"Add Login and Register functianalty"
+            "plan": "Add Login and Register functianalty"
         }
     ]
 }

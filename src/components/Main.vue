@@ -14,22 +14,22 @@ import { getchangelogs } from '../jsvars/changelog';
 
 const messageDiv = ref();
 const mobilelogin = ref(false)
-const messagepage = computed(()=>getLoginBool().value)
+const messagepage = computed(() => getLoginBool().value)
 
 const version = getchangelogs().VERSION
 
-const changelogs = computed(()=>{
-    if (messagepage.value==false && mobilelogin.value ==false) {
+const changelogs = computed(() => {
+    if (messagepage.value == false && mobilelogin.value == false) {
         return true
-    }   
+    }
     else {
         return false
     }
-});  
+});
 
 if (window.innerWidth <= 800) {
     mobilelogin.value = true;
-}else {
+} else {
     mobilelogin.value = false;
 }
 
@@ -39,7 +39,7 @@ window.addEventListener(
     () => {
         if (window.innerWidth <= 800) {
             mobilelogin.value = true;
-        }else {
+        } else {
             mobilelogin.value = false;
         }
     }
@@ -50,18 +50,23 @@ window.addEventListener(
 </script>
 
 <template >
-
-
-
-<div class=" grow  pt-2 pr-4" style="height: 110vh;">
-        <div class="flex grow gap-2  grid-cols-2 pl-3 pb-3 md:h-5/6 mobile:h-4/5" >
-            <div class="md:w-2/12 ">
+    <div class="grow pt-2 pr-4" style="height: 110vh;">
+        <div class="flex grow gap-2 grid-cols-2 pl-3 pb-3 md:h-5/6 mobile:h-4/5">
+            <div class="md:w-2/12">
                 <Sideboard />
             </div>
-            <div id="messagecontainer" class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll">
+            <div
+                id="messagecontainer"
+                class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll"
+            >
                 <div class="pb-5">
-                    <div v-if="messagepage" v-for="messsage in getmessages().value" :key="messsage.msgid" ref="messageDiv">            
-                        <Message :messagecontent="messsage" /> 
+                    <div
+                        v-if="messagepage"
+                        v-for="messsage in getmessages().value"
+                        :key="messsage.msgid"
+                        ref="messageDiv"
+                    >
+                        <Message :messagecontent="messsage" />
                     </div>
                     <div v-if="mobilelogin">
                         <MobileLogin />
@@ -70,24 +75,23 @@ window.addEventListener(
                         <Changelog />
                     </div>
                 </div>
-            
             </div>
         </div>
-        <div class="flex grow pl-3  ">
-            <BottomBoard/>
+        <div class="flex grow pl-3">
+            <BottomBoard />
         </div>
         <div class="grid grid-cols-2 pl-3">
-                <div class="text-tetiary text-xs ">{{getconnectionStatus}} </div>
-            <div class="text-tetiary text-xs text-right">Version - {{version}}</div>
-       </div>
+            <div class="text-tetiary text-xs">{{ getconnectionStatus }}</div>
+            <div class="text-tetiary text-xs text-right">Version - {{ version }}</div>
+        </div>
     </div>
-
-    
 </template>
 
 <style>
 body {
-background-color: #172121;
-margin: 0; height: 100%; overflow: hidden
+    background-color: #172121;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 </style>

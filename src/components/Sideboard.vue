@@ -37,7 +37,7 @@ const connectBtn = () => {
             <button
                 type="button"
                 class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover text-xs"
-                v-on:click
+                v-on:click="connectBtn()"
             >Changelogs</button>
         </div>
         <div
