@@ -2,10 +2,10 @@ import { Ref, ref } from "vue";
 import { getGroupId } from "./groupid";
 
 
-let messages:Ref = ref([]);
+let messages: Ref = ref([]);
 
 
-const messageExample = {id:Number,message:String,sendername:String,senttime:String,groupid:Number};
+const messageExample = { id: Number, message: String, sendername: String, senttime: String, groupid: Number };
 
 
 
