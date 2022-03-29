@@ -7,11 +7,11 @@ export default defineConfig({
   //base: path.resolve(__dirname, "./dist/"),
   plugins: [vue()],
   server: {
-    proxy:{
-      '/ws':{
-        target:'ws://localhost:8080',
-        changeOrigin:true,
-        ws:true,
+    proxy: {
+      '/ws': {
+        target: 'ws://localhost:8080',
+        changeOrigin: true,
+        ws: true,
       },
     }
   }
