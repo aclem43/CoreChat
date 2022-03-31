@@ -38,6 +38,7 @@ socket.addEventListener('error', (event) => {
 // Listen for messages
 socket.addEventListener('message', (event) => {
     const data = strObj(event.data)
+    console.log(data)
     switch (data.type) {
         case "connection":
             setUserid(data.id);
@@ -70,8 +71,13 @@ export const sendMessage = (message, groupid): void => {
 export const changeGroup = (groupid) => {
     socket.send(objStr({ id: getUserid().value, type: "changegroup", groupid: groupid, username: username }))
 }
-export const login = (usrname: string, password: string) => {
+export const login = (usrname: string, password: string): void => {
     socket.send(objStr({ type: "login", id: getUserid().value, username: usrname, password: password }))
     username = usrname;
 
+}
+
+export const register = (usrname: string, password: string): void => {
+    socket.send(objStr({ type: "register", id: getUserid().value, username: usrname, password: password }))
+    username = usrname;
 }

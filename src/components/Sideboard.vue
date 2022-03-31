@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { getLoginBool } from '../jsvars/connection';
-import { changeGroup, login } from '../jsvars/scocketConection';
+import { changeGroup, login, register } from '../jsvars/scocketConection';
 import User from './User.vue';
 
 const username = ref(null);
@@ -19,6 +19,11 @@ const changegroubtn = () => {
         grpid = groupID.value;
     }
     changeGroup(grpid)
+}
+
+const registerBtn = () => {
+    if (regusername.value == null || regpassword.value == null) { return }
+    register(regusername.value, regpassword.value)
 }
 
 const connectBtn = () => {
@@ -99,7 +104,7 @@ const connectBtn = () => {
             <button
                 type="button"
                 class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
-                v-on:click="connectBtn"
+                v-on:click="registerBtn"
             >Connect</button>
         </div>
         <div
