@@ -1,6 +1,14 @@
 {
-    "VERSION": "0.2.1",
+    "VERSION": "0.2.4",
     "CHANGELOGS": [
+        {
+            "version": "0.2.4",
+            "changelog": "Login and register functioning - Both Need Improvement "
+        },
+        {
+            "version": "0.2.3",
+            "changelog": "Improved Change Log Page"
+        },
         {
             "version": "0.2.1",
             "changelog": "Added Changelog page"
