@@ -90,8 +90,6 @@ window.addEventListener(
 <style>
 body {
     background-color: #172121;
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 </style>
