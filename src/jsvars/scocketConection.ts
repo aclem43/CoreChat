@@ -13,6 +13,15 @@ const socket: WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.l
 
 let username: string = "NULL"
 
+enum eventTypes {
+    CONNECTION = "connection",
+    LOGIN = "login",
+    REGISTER = "register",
+    MESSAGE = "message",
+    CHANGEGROUP = "changegroup"
+
+}
+
 const objStr = (object: object): string => {
     return JSON.stringify(object)
 }
@@ -41,10 +50,10 @@ socket.addEventListener('message', (event) => {
     const data = strObj(event.data)
     console.log(data)
     switch (data.type) {
-        case "connection":
+        case eventTypes.CONNECTION:
             setUserid(data.id);
             break
-        case "login":
+        case eventTypes.LOGIN:
             if (data.return) {
                 setLoginBool(true)
                 setusername(username)
@@ -52,10 +61,10 @@ socket.addEventListener('message', (event) => {
             setNotifcationContent("Welcome - " + username)
             setNotifcationVisibilty(true)
             break
-        case "message":
+        case eventTypes.MESSAGE:
             addmessages({ msgid: data.msgid, message: data.message, sendername: data.senderusername, senttime: data.senttime, groupid: data.groupid })
             break
-        case "changegroup":
+        case eventTypes.CHANGEGROUP:
             if (data.return) {
                 clearmessages()
                 setGroupId(data.groupid)
@@ -73,19 +82,19 @@ export const getSocket = (): WebSocket => {
     return socket;
 }
 export const sendMessage = (message, groupid): void => {
-    sendObject({ id: getUserid().value, type: "message", message: message, username: username, senttime: Date.now(), groupid: groupid })
+    sendObject({ id: getUserid().value, type: eventTypes.MESSAGE, message: message, username: username, senttime: Date.now(), groupid: groupid })
 
 }
 export const changeGroup = (groupid) => {
-    sendObject({ id: getUserid().value, type: "changegroup", groupid: groupid, username: username })
+    sendObject({ id: getUserid().value, type: eventTypes.CHANGEGROUP, groupid: groupid, username: username })
 }
 export const login = (usrname: string, password: string): void => {
-    sendObject({ type: "login", id: getUserid().value, username: usrname, password: password })
+    sendObject({ type: eventTypes.LOGIN, id: getUserid().value, username: usrname, password: password })
     username = usrname;
 
 }
 
 export const register = (usrname: string, password: string): void => {
-    sendObject({ type: "register", id: getUserid().value, username: usrname, password: password })
+    sendObject({ type: eventTypes.REGISTER, id: getUserid().value, username: usrname, password: password })
     username = usrname;
 }
