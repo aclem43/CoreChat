@@ -58,7 +58,7 @@ window.addEventListener(
 
 <template >
     <div class="">
-        <div>
+        <div class="h-7">
             <Notification v-if="notificationHidden.value">{{notificationcontent.value}}</Notification>
         </div>
         <div class="shrink pt-2 pr-4" style="height: 105vh;">

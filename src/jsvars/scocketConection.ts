@@ -13,11 +13,11 @@ const socket: WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.l
 
 let username: string = "NULL"
 
-const objStr = (object: object) => {
+const objStr = (object: object): string => {
     return JSON.stringify(object)
 }
 
-const strObj = (string: string) => {
+const strObj = (string: string): any => {
     return JSON.parse(string)
 }
 
@@ -64,23 +64,28 @@ socket.addEventListener('message', (event) => {
 
 
 });
+
+const sendObject = (obj: Object): void => {
+    socket.send(objStr(obj))
+}
+
 export const getSocket = (): WebSocket => {
     return socket;
 }
 export const sendMessage = (message, groupid): void => {
-    socket.send(objStr({ id: getUserid().value, type: "message", message: message, username: username, senttime: Date.now(), groupid: groupid }))
+    sendObject({ id: getUserid().value, type: "message", message: message, username: username, senttime: Date.now(), groupid: groupid })
 
 }
 export const changeGroup = (groupid) => {
-    socket.send(objStr({ id: getUserid().value, type: "changegroup", groupid: groupid, username: username }))
+    sendObject({ id: getUserid().value, type: "changegroup", groupid: groupid, username: username })
 }
 export const login = (usrname: string, password: string): void => {
-    socket.send(objStr({ type: "login", id: getUserid().value, username: usrname, password: password }))
+    sendObject({ type: "login", id: getUserid().value, username: usrname, password: password })
     username = usrname;
 
 }
 
 export const register = (usrname: string, password: string): void => {
-    socket.send(objStr({ type: "register", id: getUserid().value, username: usrname, password: password }))
+    sendObject({ type: "register", id: getUserid().value, username: usrname, password: password })
     username = usrname;
 }

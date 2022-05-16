@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.2.5",
+    "VERSION": "0.2.6",
     "CHANGELOGS": [
+        {
+            "version": "0.2.6",
+            "changelog": "Minor Changes On Socket Connection And Formatting"
+        },
         {
             "version": "0.2.5",
             "changelog": "Added Green Notification System For Login"
