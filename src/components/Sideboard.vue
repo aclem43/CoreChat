@@ -21,6 +21,10 @@ const changegroubtn = () => {
     changeGroup(grpid)
 }
 
+const changelogBtn = () => {
+    
+}
+
 const registerBtn = () => {
     if (regusername.value == null || regpassword.value == null) { return }
     register(regusername.value, regpassword.value)
@@ -42,7 +46,7 @@ const connectBtn = () => {
             <button
                 type="button"
                 class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover text-xs"
-                v-on:click="connectBtn()"
+                v-on:click="changelogBtn()"
             >Changelogs</button>
         </div>
         <div

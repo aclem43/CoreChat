@@ -33,6 +33,11 @@ module.exports = {
         'grouptbg': '#535466',
         'grouptbord': '#383942',
 
+        'notifi-green': "#185915",
+        'notifi-btn-green': "#21941e",
+        'notifi-btn-green-hover': "#28b823",
+
+
         'button': '#444554',
         'button-hover': '#565769',
 
