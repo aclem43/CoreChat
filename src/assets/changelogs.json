@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.2.4",
+    "VERSION": "0.2.5",
     "CHANGELOGS": [
+        {
+            "version": "0.2.5",
+            "changelog": "Added Green Notification System For Login"
+        },
         {
             "version": "0.2.4",
             "changelog": "Login and register functioning - Both Need Improvement "
