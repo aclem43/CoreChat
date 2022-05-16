@@ -2,6 +2,10 @@
     "VERSION": "0.2.6",
     "CHANGELOGS": [
         {
+            "version": "0.2.7",
+            "changelog": "Added Fail Login Notification and Cleaned Up Some Code"
+        },
+        {
             "version": "0.2.6",
             "changelog": "Minor Changes On Socket Connection And Formatting"
         },

@@ -57,9 +57,13 @@ socket.addEventListener('message', (event) => {
             if (data.return) {
                 setLoginBool(true)
                 setusername(username)
+                setNotifcationContent("Welcome - " + username)
+                setNotifcationVisibilty(true)
+            } else {
+                setNotifcationContent("Invalid Username Or Password - " + username)
+                setNotifcationVisibilty(true)
             }
-            setNotifcationContent("Welcome - " + username)
-            setNotifcationVisibilty(true)
+
             break
         case eventTypes.MESSAGE:
             addmessages({ msgid: data.msgid, message: data.message, sendername: data.senderusername, senttime: data.senttime, groupid: data.groupid })
