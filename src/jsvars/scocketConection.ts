@@ -6,7 +6,7 @@ import { getGroupId, setGroupId } from "./groupid";
 import { addmessages, clearmessages } from "./messages"
 import { setusername } from "./username";
 import { getUserid, setUserid } from './userid'
-import { setNotifcationContent, setNotifcationVisibilty } from "./notification";
+import { setNotifcationColor, setNotifcationContent, setNotifcationVisibilty } from "./notification";
 
 const socket: WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.location.host}/ws/`);
 
@@ -57,9 +57,11 @@ socket.addEventListener('message', (event) => {
             if (data.return) {
                 setLoginBool(true)
                 setusername(username)
+                setNotifcationColor(false)
                 setNotifcationContent("Welcome - " + username)
                 setNotifcationVisibilty(true)
             } else {
+                setNotifcationColor(true)
                 setNotifcationContent("Invalid Username Or Password - " + username)
                 setNotifcationVisibilty(true)
             }

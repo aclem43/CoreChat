@@ -2,6 +2,16 @@ import { ref } from 'vue';
 
 const notifcationContent = ref("")
 const notifcationVisible = ref()
+const notifcationColor = ref(true)
+
+
+export const getNotifcationColor = () => {
+    return notifcationColor;
+}
+
+export const setNotifcationColor = (content: boolean) => {
+    notifcationColor.value = content;
+}
 
 export const getNotifcationContent = () => {
     return notifcationContent;
