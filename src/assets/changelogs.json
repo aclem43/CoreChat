@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.0",
+    "VERSION": "0.3.1",
     "CHANGELOGS": [
+        {
+            "version": "0.3.1",
+            "changelog": "Fixed Notifcation Overflow On Small Screens"
+        },
         {
             "version": "0.3.0",
             "changelog": "Temp Fix For Overflow issue + New Btns"

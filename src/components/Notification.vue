@@ -16,7 +16,7 @@ const notificationcolor = computed(()=> {
 
 
 <template>
-<div v-if="notificationcolor.value" class="w-full px-4 py-1 border-black border bg-notifi-red grid grid-cols-2">
+<div v-if="notificationcolor.value" class="w-full max-h-8 px-4 py-1 border-black border bg-notifi-red grid grid-cols-2">
     <div class=""> <slot />  </div>
     <div class="text-right">
         <button
