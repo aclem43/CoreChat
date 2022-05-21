@@ -68,7 +68,7 @@ window.addEventListener(
                 </div>
                 <div
                     id="messagecontainer"
-                    class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll"
+                    class="w-10/12 mobile:w-full bg-secondary rounded-md overflow-y-scroll overflow-x-hidden"
                 >
                     <div class="pb-5">
                         <div
