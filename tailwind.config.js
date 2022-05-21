@@ -43,6 +43,11 @@ module.exports = {
         'button': '#444554',
         'button-hover': '#565769',
 
+        'red': '#b50f04',
+        'green': '#008a0e',
+        'orange': '#8a4e00',
+
+
       },
     },
     animation: {

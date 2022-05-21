@@ -7,13 +7,13 @@ const colour = ref()
 const text = computed(() => {
     const state = getconnectionstate()
     if (state.value == 0) {
-        colour.value = "text-orange-800"
+        colour.value = "text-orange"
         return "Connecting"
     } else if (state.value == 1) {
-        colour.value = "text-green-800"
+        colour.value = "text-green"
         return "Connected"
     } else if (state.value == 2) {
-        colour.value = "text-red-800"
+        colour.value = "text-red"
         return "Disconected"
     }
 })
@@ -22,5 +22,5 @@ const text = computed(() => {
 </script>
 
 <template>
-    <div class="text-tetiary text-xs text-left" :class="colour">{{ text }}</div>
+    <div class="text-xs text-left" :class="colour">{{ text }}</div>
 </template>
