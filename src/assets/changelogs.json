@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.2.8",
+    "VERSION": "0.2.9",
     "CHANGELOGS": [
+        {
+            "version": "0.2.9",
+            "changelog": "Added Login/Register on enter"
+        },
         {
             "version": "0.2.8",
             "changelog": "Added Colour To Fail Login"

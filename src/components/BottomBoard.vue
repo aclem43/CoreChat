@@ -34,7 +34,7 @@ const userid = computed(() => {
 <template>
     <div class="rounded-md bg-secondary w-2/12 mobile:hidden">
         <div class="text-sm flex">
-            <img src="src/assets/avatar.png" class="w-6 h-6 rounded-full p-1 mx-1" />
+            <img src="" class="w-6 h-6 rounded-full p-1 mx-1" />
             <h2 class="pt-0.5 text-base">{{ getusername().value }}</h2>
         </div>
         <div class="text-xs text-center">{{ userid }}</div>

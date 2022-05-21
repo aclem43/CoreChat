@@ -1,14 +1,12 @@
-
-import { ref } from "vue";
 import { setLoginBool } from "./connection";
 import { setconnectionstate } from "./connectionstate";
-import { getGroupId, setGroupId } from "./groupid";
+import { setGroupId } from "./groupid";
 import { addmessages, clearmessages } from "./messages"
 import { setusername } from "./username";
 import { getUserid, setUserid } from './userid'
 import { setNotifcationColor, setNotifcationContent, setNotifcationVisibilty } from "./notification";
 
-const socket: WebSocket = new WebSocket('ws://localhost:8080')//`ws://${window.location.host}/ws/`);
+const socket: WebSocket = new WebSocket('ws://indrocraft.hopto.org:42069')//`ws://${window.location.host}/ws/`);
 
 
 let username: string = "NULL"

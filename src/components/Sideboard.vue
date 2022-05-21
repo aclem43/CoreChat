@@ -72,6 +72,7 @@ const connectBtn = () => {
                     size="8"
                     v-model="password"
                     placeholder="Password..."
+                    v-on:keypress.enter="connectBtn()"
                 />
             </div>
             <button
@@ -125,12 +126,13 @@ const connectBtn = () => {
                     size="5"
                     v-model="groupID"
                     placeholder="e.g. 0000"
+                    v-on:keypress.enter="registerBtn()"
                 />
             </div>
             <div class="pb-2">
                 <button
                     class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
-                    v-on:click="changegroubtn"
+                    v-on:click="changegroubtn()"
                 >Join</button>
             </div>
         </div>
