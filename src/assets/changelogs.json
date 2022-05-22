@@ -2,6 +2,10 @@
     "VERSION": "0.3.4",
     "CHANGELOGS": [
         {
+            "version": "0.3.5",
+            "changelog": "Fixed Some Mobile Issues"
+        },
+        {
             "version": "0.3.4",
             "changelog": "Added Special Formating For Server (Bold) and user (Italics) messages"
         },

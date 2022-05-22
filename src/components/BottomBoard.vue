@@ -39,24 +39,20 @@ const userid = computed(() => {
         </div>
         <div class="text-xs text-center">{{ userid }}</div>
     </div>
-    
+
     <div class="md:w-10/12 mobile:w-full ml-1 flex bg-secondary">
-        <input
-        v-model="messageInput"
-        class="border-solid border-2 border-secondary rounded-md text-lg  w-11/12 p-1 focus:outline-none"
-        :disabled="disabled"
-        :placeholder="'Message @' + getGroupId().value"
-        v-on:keypress.enter="keyPress()"
-        />
-        <div class="w-1/12 bg-quaternary m-1 rounded-md  flex p-0.5 gap-0.5">
+        <input v-model="messageInput"
+            class="border-solid border-2 border-secondary rounded-md text-lg  w-11/12 p-1 focus:outline-none mobile:w-full"
+            :disabled="disabled" :placeholder="'Message @' + getGroupId().value" v-on:keypress.enter="keyPress()" />
+        <div class="w-1/12 bg-quaternary m-1 rounded-md  flex p-0.5 gap-0.5 mobile:hidden">
             <div class="w-1/2 bg-secondary rounded-md text-center hover:bg-button-hover">
                 IMG
             </div>
             <div class="w-1/2 bg-secondary rounded-md text-center hover:bg-button-hover">
-               
+
             </div>
-        
+
         </div>
     </div>
-    
+
 </template>
