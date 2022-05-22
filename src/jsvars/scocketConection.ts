@@ -5,6 +5,7 @@ import { addmessages, clearmessages } from "./messages"
 import { setusername } from "./username";
 import { getUserid, setUserid } from './userid'
 import { setNotifcationColor, setNotifcationContent, setNotifcationVisibilty } from "./notification";
+import { AddColourUser, getColour } from "./colours";
 
 const socket: WebSocket = new WebSocket('ws://indrocraft.hopto.org:42069')//`ws://${window.location.host}/ws/`);
 
@@ -46,7 +47,6 @@ socket.addEventListener('error', (event) => {
 // Listen for messages
 socket.addEventListener('message', (event) => {
     const data = strObj(event.data)
-    console.log(data)
     switch (data.type) {
         case eventTypes.CONNECTION:
             setUserid(data.id);
@@ -67,6 +67,9 @@ socket.addEventListener('message', (event) => {
             break
         case eventTypes.MESSAGE:
             addmessages({ msgid: data.msgid, message: data.message, sendername: data.senderusername, senttime: data.senttime, groupid: data.groupid })
+            if (getColour(data.senderusername) == null) {
+                AddColourUser(data.senderusername, username)
+            }
             break
         case eventTypes.CHANGEGROUP:
             if (data.return) {

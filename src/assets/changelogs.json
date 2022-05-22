@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.2",
+    "VERSION": "0.3.3",
     "CHANGELOGS": [
+        {
+            "version": "0.3.3",
+            "changelog": "Added Different Coloured Usernames (User Will Always Be Black)"
+        },
         {
             "version": "0.3.2",
             "changelog": "Added Coloured Connection Status"
