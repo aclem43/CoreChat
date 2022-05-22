@@ -2,6 +2,10 @@
     "VERSION": "0.3.5",
     "CHANGELOGS": [
         {
+            "version": "Service message",
+            "changelog": "Reset Acounts Due To Some Server Side Improvements"
+        },
+        {
             "version": "0.3.5",
             "changelog": "Fixed Some Mobile Issues"
         },
