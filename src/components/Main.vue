@@ -59,7 +59,7 @@ window.addEventListener(
 
 <template >
     <div class="">
-        <div class="h-7">
+        <div class="h-7 mobile:h-0">
             <Notification class="float-right" v-if="notificationHidden.value">{{ notificationcontent.value }}
             </Notification>
         </div>
