@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.3",
+    "VERSION": "0.3.4",
     "CHANGELOGS": [
+        {
+            "version": "0.3.4",
+            "changelog": "Added Special Formating For Server (Bold) and user (Italics) messages"
+        },
         {
             "version": "0.3.3",
             "changelog": "Added Different Coloured Usernames (User Will Always Be Black)"

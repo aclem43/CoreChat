@@ -61,6 +61,8 @@ let Colors = {
 export const AddColourUser = (username: string, currentusername: string) => {
     if (username == currentusername) {
         userColours[username] = "#000000"
+    } else if (username == "Server") {
+        userColours[username] = "#000000"
     }
     else {
         userColours[username] = Colors.random()

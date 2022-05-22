@@ -1,13 +1,14 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { getColour } from '../jsvars/colours';
+import { getusername } from '../jsvars/username';
 
 const msgdiv = ref()
 defineProps({
     messagecontent: Object,
 })
 
-const username = ref();
+const username = getusername()
 
 let colourcss;
 onMounted(() => {
@@ -21,8 +22,17 @@ const formatDate = (s) => {
 }
 
 const getColourCss = (messagecontent) => {
+    let weight = "normal"
+    let fontstyle = "normal"
+    if (messagecontent.sendername == "Server") {
+        weight = "bold"
+    } else if (messagecontent.sendername == username.value) {
+        fontstyle = "italic"
+    }
     return {
-        'color': getColour(messagecontent.sendername)
+        'color': getColour(messagecontent.sendername),
+        'font-weight': weight,
+        'font-style': fontstyle,
     }
 }
 
