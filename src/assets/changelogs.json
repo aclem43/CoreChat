@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.5",
+    "VERSION": "0.3.6",
     "CHANGELOGS": [
+        {
+            "version": "0.3.6",
+            "changelog": "Added Server Version When Connected"
+        },
         {
             "version": "Service message",
             "changelog": "Reset Acounts Due To Some Server Side Improvements"

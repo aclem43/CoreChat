@@ -11,7 +11,7 @@ module.exports = {
 
       screens: {
         'mobile': { 'raw': '(max-width: 800px)' },
-        'md': '800px',
+        'md': { 'raw': '(min-width: 800px)' },
       },
 
       colors: {
@@ -25,7 +25,7 @@ module.exports = {
         'critical': '#751f1b',
         'sucsess': '#2d751e',
 
-        "light": "#2e2e2e",
+        "light": "#878787",
 
         'messsageBG': '#7F7B82',
         'messageAlt': '#000000',
@@ -54,7 +54,6 @@ module.exports = {
       fade: 'fadeIn 0.2s ease-in',
     },
 
-    // that is actual animation
     keyframes: theme => ({
       fadeIn: {
         '0%': { backgroundColor: theme('colors.transparent') },

@@ -6,8 +6,9 @@ import { setusername } from "./username";
 import { getUserid, setUserid } from './userid'
 import { setNotifcationColor, setNotifcationContent, setNotifcationVisibilty } from "./notification";
 import { AddColourUser, getColour } from "./colours";
+import { setServerVersion } from "./version";
 
-const socket: WebSocket = new WebSocket('ws://indrocraft.hopto.org:42069')//`ws://${window.location.host}/ws/`);
+const socket: WebSocket = new WebSocket("ws://localhost:42069")//'ws://indrocraft.hopto.org:42069')//`ws://${window.location.host}/ws/`);
 
 
 let username: string = "NULL"
@@ -50,6 +51,7 @@ socket.addEventListener('message', (event) => {
     switch (data.type) {
         case eventTypes.CONNECTION:
             setUserid(data.id);
+            setServerVersion(data.version)
             break
         case eventTypes.LOGIN:
             if (data.return) {

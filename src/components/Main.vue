@@ -59,8 +59,8 @@ window.addEventListener(
 
 <template >
     <div class="">
-        <div class="h-7 mobile:h-0">
-            <Notification class="absolute" v-if="notificationHidden.value">{{ notificationcontent.value }}
+        <div class="mobile:h-0 mobile:absolute">
+            <Notification v-if="notificationHidden.value">{{ notificationcontent.value }}
             </Notification>
         </div>
         <div class="shrink pt-2 pr-4" style="height: 105vh;">
@@ -93,7 +93,6 @@ window.addEventListener(
             </div>
         </div>
     </div>
-    <div class="mobile:h-5"></div>
 </template>
 
 <style>
