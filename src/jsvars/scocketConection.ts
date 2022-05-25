@@ -7,6 +7,7 @@ import { getUserid, setUserid } from './userid'
 import { setNotifcationColor, setNotifcationContent, setNotifcationVisibilty } from "./notification";
 import { AddColourUser, getColour } from "./colours";
 import { setServerVersion } from "./version";
+import { updateUsers } from "./users";
 
 const socket: WebSocket = new WebSocket("ws://localhost:42069")//'ws://indrocraft.hopto.org:42069')//`ws://${window.location.host}/ws/`);
 
@@ -18,7 +19,8 @@ enum eventTypes {
     LOGIN = "login",
     REGISTER = "register",
     MESSAGE = "message",
-    CHANGEGROUP = "changegroup"
+    CHANGEGROUP = "changegroup",
+    GROUPS = "group"
 
 }
 
@@ -78,6 +80,11 @@ socket.addEventListener('message', (event) => {
                 clearmessages()
                 setGroupId(data.groupid)
             }
+            break
+        case eventTypes.GROUPS:
+            console.log(data)
+            updateUsers(data.groups)
+            break
     }
 
 
@@ -94,8 +101,8 @@ export const sendMessage = (message, groupid): void => {
     sendObject({ id: getUserid().value, type: eventTypes.MESSAGE, message: message, username: username, senttime: Date.now(), groupid: groupid })
 
 }
-export const changeGroup = (groupid) => {
-    sendObject({ id: getUserid().value, type: eventTypes.CHANGEGROUP, groupid: groupid, username: username })
+export const changeGroup = (groupid, oldid) => {
+    sendObject({ id: getUserid().value, type: eventTypes.CHANGEGROUP, oldgroupid: oldid, groupid: groupid, username: username })
 }
 export const login = (usrname: string, password: string): void => {
     sendObject({ type: eventTypes.LOGIN, id: getUserid().value, username: usrname, password: password })

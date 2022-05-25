@@ -1,6 +1,9 @@
 <script setup>
+import { computed } from '@vue/reactivity';
 import { ref } from 'vue'
 import { getLoginBool } from '../jsvars/connection';
+import { getGroupId } from '../jsvars/groupid';
+import { getCurrentUsers } from '../jsvars/users';
 import { changeGroup, login, register } from '../jsvars/scocketConection';
 import User from './User.vue';
 
@@ -12,17 +15,18 @@ const regpassword = ref(null);
 
 const groupID = ref(null);
 const changegroubtn = () => {
+    const oldId = getGroupId().value
     let grpid;
     if (groupID.value == null) {
         grpid = "0000";
     } else {
         grpid = groupID.value;
     }
-    changeGroup(grpid)
+    changeGroup(grpid, oldId)
 }
 
 const changelogBtn = () => {
-    
+
 }
 
 const registerBtn = () => {
@@ -35,6 +39,10 @@ const connectBtn = () => {
     login(username.value, password.value)
 
 }
+
+const getMembers = computed(() => {
+    return getCurrentUsers().value
+})
 </script>
 
 
@@ -43,106 +51,54 @@ const connectBtn = () => {
         <div class="text-center bg-quaternary rounded-md p-2 mb-2 animate-fade">
             <h1>Corechat</h1>
             <div class="text-xs">Description</div>
-            <button
-                type="button"
-                class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover text-xs"
-                v-on:click="changelogBtn()"
-            >Changelogs</button>
+            <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover text-xs"
+                v-on:click="changelogBtn()">Changelogs</button>
         </div>
-        <div
-            class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade"
-            v-if="!getLoginBool().value"
-        >
+        <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
             <h3>Login</h3>
             <div class="p-2">
                 <label for="usernamin" class="pr-2 text-xs">Username:</label>
-                <input
-                    id="usernamin"
-                    type="text"
-                    class="rounded-md text-xs p-1 focus:outline-none"
-                    size="8"
-                    v-model="username"
-                    placeholder="Username..."
-                />
+                <input id="usernamin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="8"
+                    v-model="username" placeholder="Username..." />
                 <label for="passwordin" class="pr-2 text-xs">Password:</label>
-                <input
-                    id="passwordin"
-                    type="password"
-                    class="rounded-md text-xs p-1 focus:outline-none"
-                    size="8"
-                    v-model="password"
-                    placeholder="Password..."
-                    v-on:keypress.enter="connectBtn()"
-                />
+                <input id="passwordin" type="password" class="rounded-md text-xs p-1 focus:outline-none" size="8"
+                    v-model="password" placeholder="Password..." v-on:keypress.enter="connectBtn()" />
             </div>
-            <button
-                type="button"
-                class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
-                v-on:click="connectBtn()"
-            >Connect</button>
+            <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
+                v-on:click="connectBtn()">Connect</button>
         </div>
-        <div
-            class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade"
-            v-if="!getLoginBool().value"
-        >
+        <div class="text-center bg-quaternary rounded-md p-4 mb-2 animate-fade" v-if="!getLoginBool().value">
             <h3>Register</h3>
             <div class="p-2">
                 <label for="usernamregin" class="pr-2 text-xs">Username:</label>
-                <input
-                    id="usernamregin"
-                    type="text"
-                    class="rounded-md text-xs p-1 focus:outline-none"
-                    size="8"
-                    v-model="regusername"
-                    placeholder="Username..."
-                />
+                <input id="usernamregin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="8"
+                    v-model="regusername" placeholder="Username..." />
                 <label for="passwordregin" class="pr-2 text-xs">Password:</label>
-                <input
-                    id="passwordregin"
-                    type="password"
-                    class="rounded-md text-xs p-1 focus:outline-none"
-                    size="8"
-                    v-model="regpassword"
-                    placeholder="Password..."
-                />
+                <input id="passwordregin" type="password" class="rounded-md text-xs p-1 focus:outline-none" size="8"
+                    v-model="regpassword" placeholder="Password..." />
             </div>
-            <button
-                type="button"
-                class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
-                v-on:click="registerBtn"
-            >Connect</button>
+            <button type="button" class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
+                v-on:click="registerBtn">Connect</button>
         </div>
-        <div
-            class="text-center bg-quaternary rounded-md p-5 mb-2 animate-fade"
-            v-if="getLoginBool().value"
-        >
+        <div class="text-center bg-quaternary rounded-md p-5 mb-2 animate-fade" v-if="getLoginBool().value">
             <h3>Group</h3>
             <div class="p-2">
                 <label for="groupidin" class="pr-2 text-xs">Group Code:</label>
-                <input
-                    id="groupidin"
-                    type="text"
-                    class="rounded-md text-xs p-1 focus:outline-none"
-                    size="5"
-                    v-model="groupID"
-                    placeholder="e.g. 0000"
-                    v-on:keypress.enter="registerBtn()"
-                />
+                <input id="groupidin" type="text" class="rounded-md text-xs p-1 focus:outline-none" size="5"
+                    v-model="groupID" placeholder="e.g. 0000" v-on:keypress.enter="registerBtn()" />
             </div>
             <div class="pb-2">
-                <button
-                    class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
-                    v-on:click="changegroubtn()"
-                >Join</button>
+                <button class="bg-button rounded-md px-2 py-0.5 hover:bg-button-hover"
+                    v-on:click="changegroubtn()">Join</button>
             </div>
         </div>
-        <div
-            class="text-center bg-quaternary rounded-md p-5 animate-fade"
-            v-if="getLoginBool().value"
-        >
+        <div class="text-center bg-quaternary rounded-md p-5 animate-fade" v-if="getLoginBool().value">
             <h3>Connected Users</h3>
             <div class="border-2 border-secondary rounded-md px-1">
-                <User username="TestUser" />
+                <div v-for="members in getMembers">
+                    <User :username="members" />
+
+                </div>
             </div>
         </div>
     </div>
