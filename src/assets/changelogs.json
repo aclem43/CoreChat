@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.6",
+    "VERSION": "0.3.7",
     "CHANGELOGS": [
+        {
+            "version": "0.3.7",
+            "changelog": "Added Connected Users Board"
+        },
         {
             "version": "0.3.6",
             "changelog": "Added Server Version When Connected"
