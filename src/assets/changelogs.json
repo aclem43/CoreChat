@@ -1,6 +1,10 @@
 {
-    "VERSION": "0.3.7",
+    "VERSION": "0.3.8",
     "CHANGELOGS": [
+        {
+            "version": "0.3.8",
+            "changelog": "Updated Connected User Board Protocols"
+        },
         {
             "version": "0.3.7",
             "changelog": "Added Connected Users Board"
