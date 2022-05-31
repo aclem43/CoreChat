@@ -2,7 +2,7 @@
 
 
 defineProps({
-  username: String,
+  username: Object,
 })
 
 </script>

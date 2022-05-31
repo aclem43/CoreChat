@@ -17,7 +17,8 @@ const groupID = ref(null);
 const changegroubtn = () => {
     const oldId = getGroupId().value
     let grpid;
-    if (groupID.value == null) {
+
+    if (groupID.value === "") {
         grpid = "0000";
     } else {
         grpid = groupID.value;
